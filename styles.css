@@ -1,48 +1,103 @@
+/* General Body Style */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
     margin: 0;
     padding: 0;
 }
 
+/* Main Container */
 .container {
     text-align: center;
-    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 50px;
 }
 
+/* Header Style */
 h1 {
     color: #333;
     margin-bottom: 20px;
+    font-size: 2.5em;
 }
 
-#simulation {
-    margin-top: 40px;
-}
-
-#food-options, #lifestyle-changes {
+/* Instructions Section */
+#instructions {
+    background-color: #e0f7fa;
+    border: 1px solid #81d4fa;
+    padding: 15px;
+    border-radius: 8px;
     margin-bottom: 20px;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
+#instructions p {
+    font-size: 1.2em;
+    color: #00796b;
+}
+
+/* Food Options */
+#food-options button {
+    padding: 15px 30px;
+    font-size: 18px;
     margin: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
+#food-options button:hover {
     background-color: #45a049;
 }
 
-#metrics p {
-    font-size: 18px;
+/* Glucose and Insulin Metrics */
+#metrics {
+    margin: 20px 0;
+    font-size: 1.5em;
+    color: #333;
 }
 
+#metrics p {
+    margin: 10px 0;
+}
+
+/* Lifestyle Changes Section */
+#lifestyle-changes {
+    margin-top: 30px;
+}
+
+#lifestyle-changes h3 {
+    font-size: 1.8em;
+    color: #00796b;
+    margin-bottom: 10px;
+}
+
+#lifestyle-changes button {
+    padding: 15px 30px;
+    font-size: 18px;
+    margin: 10px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#lifestyle-changes button:hover {
+    background-color: #1976D2;
+}
+
+/* Message Section */
 #message {
     margin-top: 20px;
+    font-size: 1.2em;
     font-weight: bold;
+    color: #d32f2f;
 }
