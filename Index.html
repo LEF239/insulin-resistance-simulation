@@ -7,12 +7,39 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Understanding Insulin Resistance</h1>
-    <div id="simulation">
-        <!-- Add interactive elements here -->
-        <button id="eat-food">Eat Food</button>
-        <p id="glucose-level">Glucose Level: 100</p>
+    <div class="container">
+        <h1>Understanding Insulin Resistance</h1>
+        
+        <!-- Instruction Section -->
+        <div id="instructions">
+            <p>Click the buttons below to simulate eating different types of foods and see how glucose levels and insulin sensitivity change over time.</p>
+        </div>
+
+        <!-- Simulation Section -->
+        <div id="simulation">
+            <!-- Food Buttons -->
+            <div id="food-options">
+                <button id="healthy-food">Eat Healthy Food</button>
+                <button id="sugary-food">Eat Sugary Food</button>
+            </div>
+
+            <!-- Glucose & Insulin Display -->
+            <div id="metrics">
+                <p>Glucose Level: <span id="glucose-level">100</span></p>
+                <p>Insulin Sensitivity: <span id="insulin-sensitivity">100</span></p>
+            </div>
+
+            <!-- Lifestyle Changes -->
+            <div id="lifestyle-changes">
+                <h3>Manage Insulin Resistance</h3>
+                <button id="exercise">Exercise</button>
+                <button id="reduce-sugar">Reduce Sugar Intake</button>
+            </div>
+        </div>
+        
+        <p id="message"></p>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
