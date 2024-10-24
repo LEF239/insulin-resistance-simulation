@@ -56,7 +56,7 @@ h1 {
     background-color: #45a049;
 }
 
-/* Metrics */
+/* Glucose and Insulin Metrics */
 #metrics {
     margin: 20px 0;
     font-size: 1.5em;
@@ -67,28 +67,37 @@ h1 {
     margin: 10px 0;
 }
 
-/* Lifestyle Changes */
+/* Lifestyle Changes Section */
 #lifestyle-changes {
     margin-top: 30px;
 }
 
-#lifestyle-changes label {
-    display: block;
-    font-size: 1.2em;
-    margin-bottom: 5px;
+#lifestyle-changes h3 {
+    font-size: 1.8em;
+    color: #00796b;
+    margin-bottom: 10px;
 }
 
-input[type="range"] {
-    width: 80%;
-    margin-bottom: 20px;
+#lifestyle-changes button {
+    padding: 15px 30px;
+    font-size: 18px;
+    margin: 10px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-span {
+#lifestyle-changes button:hover {
+    background-color: #1976D2;
+}
+
+/* Message Section */
+#message {
+    margin-top: 20px;
     font-size: 1.2em;
     font-weight: bold;
-}
-
-/* Chart Section */
-canvas {
-    margin-top: 30px;
+    color: #d32f2f;
 }
