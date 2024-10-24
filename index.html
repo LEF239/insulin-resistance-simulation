@@ -5,22 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insulin Resistance Simulation</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js for graphs -->
 </head>
 <body>
     <div class="container">
         <h1>Understanding Insulin Resistance</h1>
-        
+
         <!-- Instruction Section -->
         <div id="instructions">
-            <p>Click the buttons below to simulate eating different types of foods and see how glucose levels and insulin sensitivity change over time.</p>
+            <p>Simulate your diet and lifestyle choices, and track how they affect glucose levels and insulin sensitivity over time.</p>
         </div>
 
         <!-- Simulation Section -->
         <div id="simulation">
+
             <!-- Food Buttons -->
             <div id="food-options">
                 <button id="healthy-food">Eat Healthy Food</button>
                 <button id="sugary-food">Eat Sugary Food</button>
+            </div>
+
+            <!-- Sliders for Lifestyle Changes -->
+            <div id="lifestyle-changes">
+                <h3>Manage Insulin Resistance</h3>
+                <label for="exercise-slider">Exercise Level</label>
+                <input type="range" id="exercise-slider" min="0" max="10" step="1" value="0">
+                <span id="exercise-value">0</span>
+
+                <label for="diet-slider">Diet Quality</label>
+                <input type="range" id="diet-slider" min="0" max="10" step="1" value="5">
+                <span id="diet-value">5</span>
             </div>
 
             <!-- Glucose & Insulin Display -->
@@ -29,11 +43,9 @@
                 <p>Insulin Sensitivity: <span id="insulin-sensitivity">100</span>%</p>
             </div>
 
-            <!-- Lifestyle Changes -->
-            <div id="lifestyle-changes">
-                <h3>Manage Insulin Resistance</h3>
-                <button id="exercise">Exercise</button>
-                <button id="reduce-sugar">Reduce Sugar Intake</button>
+            <!-- Chart for tracking glucose and insulin -->
+            <div>
+                <canvas id="glucose-chart" width="400" height="200"></canvas>
             </div>
         </div>
         
