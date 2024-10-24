@@ -1,84 +1,62 @@
 // Initial values for glucose level and insulin sensitivity
 let glucoseLevel = 100;
 let insulinSensitivity = 100;
-let glucoseData = [100];
-let sensitivityData = [100];
-let timeLabels = ['0'];
 
 // Display the initial values
 document.getElementById('glucose-level').textContent = glucoseLevel;
 document.getElementById('insulin-sensitivity').textContent = insulinSensitivity;
 
-// Chart setup for glucose levels and insulin sensitivity tracking
-const ctx = document.getElementById('glucose-chart').getContext('2d');
-const glucoseChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: timeLabels,
-        datasets: [{
-            label: 'Glucose Level (mg/dL)',
-            data: glucoseData,
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 2,
-            fill: false
-        }]
-    },
-    options: {
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: 'Time (units)'
-                }
-            },
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Glucose Level'
-                }
-            }
-        }
-    }
-});
-
-// Update glucose and insulin sensitivity metrics
-function updateMetrics() {
-    document.getElementById('glucose-level').textContent = glucoseLevel;
-    document.getElementById('insulin-sensitivity').textContent = insulinSensitivity;
-
-    // Update the chart
-    glucoseData.push(glucoseLevel);
-    sensitivityData.push(insulinSensitivity);
-    timeLabels.push(timeLabels.length.toString());
-    glucoseChart.update();
-}
-
-// Handle eating healthy food
+// Function to simulate eating healthy food
 document.getElementById('healthy-food').addEventListener('click', function() {
     glucoseLevel += 5;  // Minimal glucose increase
     insulinSensitivity += 2;  // Slight improvement in sensitivity
     updateMetrics();
+    showMessage("You ate a healthy meal! Glucose increased slightly.");
 });
 
-// Handle eating sugary food
+// Function to simulate eating sugary food
 document.getElementById('sugary-food').addEventListener('click', function() {
     glucoseLevel += 20;  // Large glucose increase
     insulinSensitivity -= 10;  // Insulin sensitivity decreases
     updateMetrics();
+    showMessage("You ate a sugary meal! Glucose spiked and insulin resistance increased.");
 });
 
-// Handle sliders for lifestyle changes
-document.getElementById('exercise-slider').addEventListener('input', function(event) {
-    let exerciseValue = event.target.value;
-    document.getElementById('exercise-value').textContent = exerciseValue;
-    insulinSensitivity += parseInt(exerciseValue);  // Adjust based on slider value
+// Function to simulate exercising
+document.getElementById('exercise').addEventListener('click', function() {
+    glucoseLevel -= 10;  // Glucose level decreases
+    insulinSensitivity += 5;  // Insulin sensitivity improves
     updateMetrics();
+    showMessage("You exercised! Glucose levels dropped and insulin sensitivity improved.");
 });
 
-document.getElementById('diet-slider').addEventListener('input', function(event) {
-    let dietValue = event.target.value;
-    document.getElementById('diet-value').textContent = dietValue;
-    insulinSensitivity += parseInt(dietValue);  // Adjust based on slider value
+// Function to simulate reducing sugar intake
+document.getElementById('reduce-sugar').addEventListener('click', function() {
+    insulinSensitivity += 10;  // Insulin sensitivity improves
     updateMetrics();
+    showMessage("You reduced sugar intake! Insulin sensitivity improved.");
 });
+
+// Function to update glucose level and insulin sensitivity display
+function updateMetrics() {
+    document.getElementById('glucose-level').textContent = glucoseLevel;
+    document.getElementById('insulin-sensitivity').textContent = insulinSensitivity;
+
+    // Prevent negative values for insulin sensitivity
+    if (insulinSensitivity < 0) {
+        insulinSensitivity = 0;
+    }
+
+    // Check for critical conditions
+    if (glucoseLevel > 200) {
+        showMessage("Warning: Your glucose levels are dangerously high!");
+    }
+    if (insulinSensitivity < 20) {
+        showMessage("Warning: Severe insulin resistance detected!");
+    }
+}
+
+// Function to display messages
+function showMessage(message) {
+    document.getElementById('message').textContent = message;
+}
